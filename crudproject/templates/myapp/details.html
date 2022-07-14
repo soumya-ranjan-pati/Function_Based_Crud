@@ -1,0 +1,57 @@
+{% extends 'common.html'  %}
+{% load static %}
+
+{% block head %}
+        {% include 'head.html' %}
+{% endblock %}
+{% block soumya %}
+
+        <table class="table table-striped table-dark" width=500px>
+            <tr>  
+             <th><h4>Show Employee Details</h4></th>
+            </tr>
+            <tr>
+                  <th>Employee Idno</th>
+                  <th>Employee Name</th>
+                  <th>Employee Contact</th>
+                  <th>Employee Email</th>
+                  <th>Employee Salary</th>
+                  <th>Employee Address</th>
+                  <th>Employee Update</th>
+                  <th>Employee Delete</th>
+            </tr>
+            {% for x in data %}
+            <tr>
+                  <th>{{x.idno}}</th>
+                  <th>{{x.name}}</th>
+                  <th>{{x.contact}}</th>
+                  <th>{{x.email}}</th>
+                  <th>{{x.salary}}</th>
+                  <th>{{x.address}}</th>
+                  <th>
+                       <a href="{% url 'update' %}?no={{x.idno}}">
+                              <img src="{% static 'imagess\update.png' %}" width=100px height=70px>
+                       </a>
+                  </th>
+                  <th>
+                        <a href="{% url 'delete' %}?no={{x.idno}}">
+                               <img src="{% static 'imagess\delete.png' %}" width=100px height=70px>
+                        </a>
+                   </th>
+            </tr>
+            {% endfor %}
+
+{% if messages %}
+
+{% for x in messages %}
+  <h1>{{x}}</h1>
+
+{% endfor %}
+
+{% endif %}
+
+
+
+
+
+{% endblock %}
