@@ -16,3 +16,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crudproject.settings')
 
 application = Cling(get_wsgi_application())
 
+
+
+#web: gunicorn crudproject.wsgi --log-file
