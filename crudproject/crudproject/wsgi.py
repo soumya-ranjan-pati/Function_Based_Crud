@@ -18,4 +18,4 @@ application = Cling(get_wsgi_application())
 
 
 
-#web: gunicorn crudproject.wsgi --log-file
+#
